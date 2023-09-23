@@ -7,6 +7,7 @@
 # Do the imports
 import time
 import network
+import machine
 from machine import Pin
 from mqttlib import MQTTClient
 from galactic import GalacticUnicorn
@@ -181,4 +182,5 @@ except Exception as e:
     print(f'Failed to wait for MQTT messages: {e}')
 finally:
     mqtt_client.disconnect()
-
+    time.sleep(0.500)
+    machine.reset()
